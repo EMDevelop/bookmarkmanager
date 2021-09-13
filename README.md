@@ -13,6 +13,8 @@ This project will allow users to interact with Bookmarks on the website. It will
 - Filter bookmarks by tag
 - Users are restricted to manage only their own bookmarks
 
+---
+
 ### User Story / Domain Model
 
 ```
@@ -32,6 +34,8 @@ I want to see a list of bookmarks
 |----------|---------|
 | bookmarks: Array | list_bookmarks() |
 | | |
+
+---
 
 ### setting up a Sinatra project
 
@@ -94,7 +98,14 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require_relative '../app/app'
-require_relative './feature/helper'      # Optional
+require_relative './feature/feature'
+
+```
+
+set up the behaviour of rack (the Ruby Library that underpins Sinatra)
+
+```
+ENV['RACK_ENV'] = 'test'
 ```
 
 - Configure `capybara`
@@ -117,4 +128,26 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
 ])
 SimpleCov.start
+```
+
+- There is an option to use gem `rspec-sinatra`
+
+  - This will let you do... `rspec-sinatra init <Class name> <path where app is>` e.g.
+  - `rspec-sinatra init BookmarkManager app/app.rb`
+
+- Write a feature test
+
+```
+describe 'User Interface', type: :feature do
+
+  context 'I want to see a list of bookmarks' do
+
+    it 'shows bookmarks' do
+      visit('/bookmarks')
+      expect(page).to have_content("bookmark")
+    end
+
+  end
+
+end
 ```

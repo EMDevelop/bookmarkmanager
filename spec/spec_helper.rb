@@ -4,10 +4,11 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require_relative '../app/app'
+require_relative './feature/feature'
 # require_relative './feature/helper'  
 
 Capybara.configure do |config|
-  config.run_server = false
+  # config.run_server = false
   config.server = :webrick
   config.default_driver = :selenium
   config.app = BookmarkManager
@@ -32,3 +33,5 @@ RSpec.configure do |config|
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
 end
+
+ENV['RACK_ENV'] = 'test'
