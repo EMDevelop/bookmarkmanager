@@ -12,7 +12,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 Capybara.configure do |config|
-  config.run_server = false
+  # config.run_server = false
   config.server = :webrick
   config.default_driver = :selenium
   config.app = BookmarkManager
