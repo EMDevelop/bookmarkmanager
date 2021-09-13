@@ -4,21 +4,20 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require_relative '../app/app'
-require_relative './feature/feature'
-# require_relative './feature/helper'  
 
-Capybara.configure do |config|
-  # config.run_server = false
-  config.server = :webrick
-  config.default_driver = :selenium
-  config.app = BookmarkManager
-  config.app_host = "localhost:9292"
-end
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
 ])
 SimpleCov.start
+
+Capybara.configure do |config|
+  config.run_server = false
+  config.server = :webrick
+  config.default_driver = :selenium
+  config.app = BookmarkManager
+  config.app_host = "localhost:9292"
+end
 
 RSpec.configure do |config|
   

@@ -1,10 +1,14 @@
 describe 'User Interface', type: :feature do
 
+  before do 
+    visit('/bookmarks')
+  end
+
   context 'I want to see a list of bookmarks' do
 
     it 'shows bookmarks' do
-      visit('/bookmarks')
-      # expect(page).to have_content("bookmark")
+      p "I am being run"
+      expect(page).to have_content("bookmark")
     end
 
   end
