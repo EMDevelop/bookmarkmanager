@@ -4,12 +4,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require_relative '../app/app'
-
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  SimpleCov::Formatter::Console,
-])
-SimpleCov.start
+require 'webdrivers'
 
 Capybara.configure do |config|
   # config.run_server = false
@@ -18,6 +13,12 @@ Capybara.configure do |config|
   config.app = BookmarkManager
   config.app_host = "localhost:9292"
 end
+
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+  SimpleCov::Formatter::Console,
+])
+SimpleCov.start
+
 
 RSpec.configure do |config|
   

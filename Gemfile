@@ -6,6 +6,7 @@ gem 'dotenv'
 # gem "rails"
 group :test do
   gem 'capybara'
+  gem 'webdrivers', '~> 4.0', require: false
   gem 'sinatra-reloader'
   gem 'rspec'
   gem 'simplecov', require: false
