@@ -1,5 +1,8 @@
 source "https://rubygems.org"
 
+gem 'pg'
+gem 'dotenv'
+
 # gem "rails"
 group :test do
   gem 'capybara'

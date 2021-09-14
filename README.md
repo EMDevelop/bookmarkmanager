@@ -15,6 +15,18 @@ This project will allow users to interact with Bookmarks on the website. It will
 
 ---
 
+### How To Run
+
+#### program
+
+#### database
+
+- We've used a postgres DB
+- Connect to `psql`
+- Create a database `bookmark_manager`
+- Connect to the db
+- run `01_create_bookmarks_table.sql`
+
 ### User Story / Domain Model
 
 ```
@@ -23,17 +35,23 @@ So that I can see which bookmarks exist
 I want to see a list of bookmarks
 ```
 
+```
+As a time-pressed user
+So that I can save a website
+I would like to add the site's address and title to bookmark manager
+```
+
 `Bookmark`
 |attributes|methods |
 |----------|---------|
-| name: String | |
-| description: String | |
+| address: String | |
+| title: String | |
 
 `BookmarkManager`
 |attributes|methods |
 |----------|---------|
 | bookmarks: Array | list_bookmarks() |
-| | |
+| | store_bookmark()|
 
 ---
 
