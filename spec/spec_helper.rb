@@ -4,15 +4,12 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require_relative '../app/app'
-require 'webdrivers'
+require 'webdrivers/chromedriver'
 
-Capybara.configure do |config|
-  # config.run_server = false
-  config.server = :webrick
-  config.default_driver = :selenium
-  config.app = BookmarkManager
-  config.app_host = "localhost:9292"
-end
+
+ENV['RACK_ENV'] = 'test'
+Capybara.app = BookmarkManager
+
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -34,4 +31,3 @@ RSpec.configure do |config|
 
 end
 
-ENV['RACK_ENV'] = 'test'

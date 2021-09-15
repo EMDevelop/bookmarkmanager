@@ -14,6 +14,8 @@ group :test do
   gem 'sinatra'
   gem 'selenium-webdriver'
   gem 'thin'
+  gem "chromedriver-helper"
+
 end
 
 # Optional

@@ -1,5 +1,6 @@
 require 'dotenv'
 require 'pg'
+
 class Bookmark
 
   Dotenv.load
