@@ -21,11 +21,13 @@ This project will allow users to interact with Bookmarks on the website. It will
 
 #### database
 
-- We've used a postgres DB
+- We've used two postgres DB's
 - Connect to `psql`
-- Create a database `bookmark_manager`
-- Connect to the db
-- run `01_create_bookmarks_table.sql`
+- Create 2 databases
+  - `bookmark_manager`
+  - `bookmark_manager_test`
+- In both databases run
+  - SQL found in file: `01_create_bookmarks_table.sql`
 
 ### User Story / Domain Model
 

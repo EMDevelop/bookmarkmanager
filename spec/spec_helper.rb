@@ -5,8 +5,9 @@ require 'capybara/rspec'
 require 'rspec'
 require_relative '../app/app'
 require 'webdrivers/chromedriver'
+require 'dotenv'
 
-
+Dotenv.load
 ENV['RACK_ENV'] = 'test'
 Capybara.app = BookmarkManager
 
