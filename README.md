@@ -43,6 +43,12 @@ So that I can save a website
 I would like to add the site's address and title to bookmark manager
 ```
 
+```
+As a user
+So that I can keep track of a new website
+I would like to add bookmarks
+```
+
 `Bookmark`
 |attributes|methods |
 |----------|---------|

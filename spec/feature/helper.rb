@@ -1,5 +1,3 @@
-
-
 def fill_urls
     connection = PG.connect :dbname => ENV['DB_TEST_NAME'], :user => ENV['DBUSER'], :password => ENV['DBPASSWORD']
     connection.exec("TRUNCATE bookmarks;")
