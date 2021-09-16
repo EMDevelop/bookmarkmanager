@@ -1,4 +1,4 @@
-
+require_relative './helper'
 describe 'User Interface', type: :feature do
 
   before do
@@ -8,7 +8,6 @@ describe 'User Interface', type: :feature do
   context 'I want to see a list of bookmarks' do
 
     it 'checks links' do
-      save_and_open_page
       expect(page).to have_link('Makers Academy', href: 'http://www.makersacademy.com')
       expect(page).to have_link('Destroy All Software',  href: 'http://www.destroyallsoftware.com')
       expect(page).to have_link('Google', href: 'http://www.google.com')
@@ -30,10 +29,10 @@ describe 'User Interface', type: :feature do
       # We're aiming for Bookmark.add to return a Bookmark instance (bookmark)
       # The return value from the return * will be tested against. 
       bookmark = Bookmark.add(url: 'test_url', title: 'test_title')
-      check_database_stored_data = PG.connect(:dbname => ENV['DB_TEST_NAME'], :user => ENV['DBUSER'], :password => ENV['DBPASSWORD']).query("SELECT * FROM bookmarks WHERE id = #{bookmark.id};")
+      check_database_stored_data = select_all_from(table: 'bookmarks', id: bookmark.id)
     
       expect(bookmark).to be_a Bookmark
-      expect(bookmark.id).to eq check_database_stored_data.first['id']
+      expect(bookmark.id).to eq check_database_stored_data['id']
       expect(bookmark.title).to eq 'test_title'
       expect(bookmark.url).to eq 'test_url' 
     end
