@@ -135,16 +135,15 @@ ENV['RACK_ENV'] = 'test'
 ```
 
 - Configure `capybara`
-  - Make sure you replace the `.app` to your child class from app.rb
 
 ```
-Capybara.configure do |config|
-  config.run_server = false
-  config.server = :webrick
-  config.default_driver = :selenium
-  config.app = BookmarkManager
-  config.app_host = "localhost:9292"
-end
+require 'dotenv'
+
+Dotenv.load
+
+ENV['RACK_ENV'] = 'test'
+Capybara.app = BookmarkManager
+
 ```
 
 - Configure `SimpleCov`

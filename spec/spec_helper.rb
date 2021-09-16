@@ -7,8 +7,8 @@ require_relative '../app/app'
 require 'webdrivers/chromedriver'
 require 'dotenv'
 require_relative './feature/helper'
-
 Dotenv.load
+
 ENV['RACK_ENV'] = 'test'
 Capybara.app = BookmarkManager
 
