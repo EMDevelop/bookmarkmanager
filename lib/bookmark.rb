@@ -31,6 +31,17 @@ class Bookmark
     end
   end
 
+  def self.delete(id:)
+    assign_database
+    begin
+      con = PG.connect :dbname => @env, :user => ENV['DBUSER'], :password => ENV['DBPASSWORD']
+      result = con.exec_params("DELETE FROM bookmarks WHERE id = $1", [id])
+    rescue PG::Error => e
+      puts e.message 
+    ensure
+      con.close if con
+    end
+  end
 
   def self.assign_database
     @env = ENV['RACK_ENV'] == 'test' ? ENV['DB_TEST_NAME'] : ENV['DB_DEV_NAME']

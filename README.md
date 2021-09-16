@@ -49,7 +49,13 @@ So that I can keep track of a new website
 I would like to add bookmarks
 ```
 
-`Bookmark`
+```
+As a user
+So I can remove my bookmark from Bookmark Manager
+I want to delete a bookmark
+```
+
+<!-- `Bookmark`
 |attributes|methods |
 |----------|---------|
 | address: String | |
@@ -59,7 +65,7 @@ I would like to add bookmarks
 |attributes|methods |
 |----------|---------|
 | bookmarks: Array | list_bookmarks() |
-| | store_bookmark()|
+| | store_bookmark()| -->
 
 ---
 
