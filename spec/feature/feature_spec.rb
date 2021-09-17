@@ -53,6 +53,23 @@ describe 'User Interface', type: :feature do
     end
 
   end
+
+  context 'I want to update a bookmark' do
+
+    it 'update bookmark' do
+      connection = PG.connect :dbname => ENV['DB_TEST_NAME'], :user => ENV['DBUSER'], :password => ENV['DBPASSWORD']
+      connection.exec("TRUNCATE bookmarks;")
+      bookmark = Bookmark.add(url: 'www.cats.com', title: 'cats')
+      visit('/bookmarks')
+      expect(page).to have_link('cats', href: 'www.cats.com')
+      first('.bookmark').click_button 'Update'
+      expect(current_path).to eq '/bookmarks'
+      expect(page).to have_link('dogs', href: 'www.dogs.com')
+    end
+
+  end
+
+
   
 
 end
